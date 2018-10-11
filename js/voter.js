@@ -23,6 +23,7 @@ function Candidate(color){
 //find the canvas on our page.
 var canvas;
 var ctx;
+var count = 0;
 
 function Main(){
 	//find the canvas on our page.
@@ -38,8 +39,14 @@ function Main(){
 }
 
 function vote(voteValue){
+	count++;
 	votes.votes.push(voteValue);
-	tally();
+	
+	if(count == 4){
+		tally();
+		count = 0;
+	}
+	
 	display();
 }
 
